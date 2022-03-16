@@ -54,12 +54,15 @@ public class fproducto {
         sSQL = "insert into productos (nombre,descripcion,precio)"
                 + "values (?,?,?)";
         try {
+            cn.setAutoCommit(false);
+
             PreparedStatement pst = cn.prepareStatement(sSQL);// prepara la cadena para poder insertar los registros
             pst.setString(1, dts.getNombre()); //Enviar 1 a 1 todos los valores
             pst.setString(2, dts.getDescripcion());
             pst.setDouble(3, dts.getPrecio());
 
             int n = pst.executeUpdate();//almacena el estado de la ejecucucion del Statement
+            //cn.commit();
 
             if (n != 0) { //condicion para ver si se ingresaron registros
                 return true;
@@ -69,6 +72,15 @@ public class fproducto {
 
         } catch (Exception e) {   // error si 
             JOptionPane.showConfirmDialog(null, e);//Lanza el mensaje de error
+
+            if (cn != null) {
+                try {
+                    cn.rollback();
+                } catch (SQLException ex) {
+                    System.out.println(ex.toString());
+                }
+
+            }
             return false;
         }
     }

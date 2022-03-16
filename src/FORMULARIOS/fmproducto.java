@@ -1,4 +1,3 @@
-
 package FORMULARIOS;
 
 import DATOS.vproductos;
@@ -42,7 +41,6 @@ public class fmproducto extends javax.swing.JFrame {
     txtnombre.setEnabled(true);
     txtdescripcion.setEnabled(true);
     txtprecio_venta.setEnabled(true);
-
     
     btnguardar.setEnabled(true);
     btncancelar.setEnabled(true);
@@ -62,7 +60,7 @@ public class fmproducto extends javax.swing.JFrame {
         modelo=func.mostrar(buscar);// Instancia la funcion mostrar de fproducto
         
         tablalistado.setModel(modelo);//Asigna a la tabla los valores guardados en modelo
-        lbltotalregistros.setText("Total Registros"+Integer.toString(func.totalregistros)); //Muestra en la etiqueta el total de productos registrados
+        lbltotalregistros.setText("Total Registros: "+Integer.toString(func.totalregistros)); //Muestra en la etiqueta el total de productos registrados
               
     }catch(Exception e){
         JOptionPane.showConfirmDialog(rootPane,e);
@@ -96,8 +94,8 @@ public class fmproducto extends javax.swing.JFrame {
         btnguardar = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setText("PRODUCTOS");
@@ -320,7 +318,7 @@ public class fmproducto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtprecio_venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
